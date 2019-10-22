@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--By Supcan TreeList -->
+<TreeList>
+	<Properties Title="cust report" HeaderFontIndex="2" rowHeight="24" autoBreakLine="3"></Properties>
+	<Fonts>
+		<Font faceName="Consolas"/>
+		<Font />
+		<Font faceName="微软雅黑" bold="1"/>
+		<Font bold="true" />
+		<Font faceName="微软雅黑" size="18"/>
+	</Fonts>
+	<Cols>
+		<!-- 
+		<Group title="Dict Index" textColor="#3333ff">
+			<Col name="adesc_en_us" mergeCell="true" width="200">desc_en_us</Col>
+			<Col name="adesc_zh_cn" mergeCell="true" width="200">desc_zh_cn</Col>
+		</Group>
+		 -->
+		<Col name="code" width="100">编号</Col>
+		<Col name="name" width="200">名称</Col>
+		<Col name="type" width="100">类型</Col>
+		<Col name="tel" width="100">电话</Col>
+		<Col name="region" width="100">销售区域</Col>
+		<Col name="xin_dai" width="100">信贷额度</Col>
+		<Col name="start_date" dataType="date" width="100">开始日期</Col>
+		<Col name="end_date" dataType="date" width="100">结束日期</Col>
+		<Col name="zhe_kou" width="100">折扣</Col>
+		<Col name="total" width="100">总金额</Col>
+		<Col name="sheng_yu" width="100">剩余金额</Col>
+	</Cols>
+	<Search>
+		<![CDATA[
+			[{
+				fieldDefaults : {
+					labelWidth : 80,
+					labelAlign : "left",
+					labelStyle : 'padding-left:5px;'
+				},
+				layout : 'form',
+				xtype : 'fieldcontainer',
+				items : [{
+	                xtype: 'container',
+	                flex: 1,
+	                layout: 'hbox',
+	                items: [{
+	                    xtype:'textfield',
+	                    fieldLabel: '编号',
+//						allowBlank: false,
+	                    name: 'code'
+	                }, {
+	                    xtype:'textfield',
+	                    fieldLabel: '名称',
+	                    name: 'name'
+	                },{
+	                    xtype:'textfield',
+	                    fieldLabel: '类型',
+//						allowBlank: false,
+	                    name: 'type'
+	                }, {
+	                    xtype:'textfield',
+	                    fieldLabel: '电话',
+	                    name: 'tel'
+	                }]
+	            },
+	            {
+	                xtype: 'container',
+	                flex: 1,
+	                layout: 'hbox',
+	                items: [{
+	                    xtype:'textfield',
+	                    fieldLabel: '销售区域',
+//						allowBlank: false,
+	                    name: 'region'
+	                }, {
+	                    xtype:'textfield',
+	                    fieldLabel: '信贷额度',
+	                    name: 'xinDai'
+	                },{
+	                    xtype:'datefield',
+	                    fieldLabel: '开始日期',
+	                    name: 'startDate',
+	                    format :'Y-m-d'
+	                },{
+	                    xtype:'datefield',
+	                    fieldLabel: '结束日期',
+	                    name: 'endDate',
+	                    format :'Y-m-d'
+	                }]
+	            }]
+			}]
+		]]>
+	</Search>
+	<sql vname="cust_view">
+	<![CDATA[select t.code,
+       t.name,
+       t.region,
+       t.tel,
+       t.type,
+       t.xin_dai,
+       t2.pid,
+       t2.id,
+       t2.end_date,
+       t2.sheng_yu,
+       t2.start_date,
+       t2.status,
+       t2.total,
+       t2.zhe_kou
+  from cust_header t
+ inner join cust_item t2
+    on t.id = t2.pid
+ where t2.status='1']]>
+	</sql>
+</TreeList>

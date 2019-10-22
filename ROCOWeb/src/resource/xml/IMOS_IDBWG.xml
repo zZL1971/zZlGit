@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TreeList>
+	<Properties Title="cust report" HeaderFontIndex="2" rowHeight="24" autoBreakLine="3"></Properties>
+	<Fonts>
+		<Font faceName="Consolas"/>
+		<Font />
+		<Font faceName="微软雅黑" bold="1"/>
+		<Font bold="true" />
+		<Font faceName="微软雅黑" size="18"/>
+	</Fonts>
+	
+	<Cols>
+		<Col name="id" width="100">id</Col>
+		<Col name="orderid" width="200">orderid</Col>
+		<Col name="wgname" width="100">wgname</Col>
+		<Col name="machining" width="100">machining</Col>
+		<Col name="wgtype" width="100">wgtype</Col>
+		<Col name="info1" width="100">info1</Col>
+		<Col name="info2" width="100">info2</Col>
+		<Col name="ipx" width="100">ipx</Col>
+		<Col name="ipy" width="100">ipy</Col>
+		<Col name="ipz" width="100">ipz</Col>
+		<Col name="orx" width="100">orx</Col>
+		<Col name="ory" width="100">ory</Col>
+		<Col name="orz" width="100">orz</Col>
+		<Col name="epx" width="100">epx</Col>
+		<Col name="epy" width="100">epy</Col>
+		<Col name="epz" width="100">epz</Col>
+		<Col name="cnt" width="100">cnt</Col>
+		<Col name="length" width="100">length</Col>
+		<Col name="dia" width="100">dia</Col>
+		<Col name="de" width="100">de</Col>
+		<Col name="ortype" width="100">ortype</Col>
+		<Col name="difftype" width="100">difftype</Col>
+	</Cols>
+	<sql vname="IMOS_IDBWG_VIEW">
+	<![CDATA[select t.*  from imos_idbwg t inner join material_head t2 on t.orderid = t2.id ]]>
+	</sql>
+</TreeList>

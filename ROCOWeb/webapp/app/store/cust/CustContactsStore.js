@@ -1,0 +1,23 @@
+Ext.define("SMSWeb.store.cust.CustContactsStore",{
+	extend:'Ext.data.Store',
+	alias:'widget.CustContactsStore',
+	model:'SMSWeb.model.cust.CustContactsModel',
+	remoteSort:false,
+	pageSize:25,
+	proxy:{
+		type:'ajax',
+		url:'main/cust/findContactsByPid',
+		reader:{
+			type:'json',
+			root:'content',
+			totalProperty :'totalElements'
+		},
+		writer:{
+			type:'json'
+		},
+		listeners:{  
+	        exception:Ext.ux.DataFactory.exception
+	    }
+	},
+	autoLoad:false
+});

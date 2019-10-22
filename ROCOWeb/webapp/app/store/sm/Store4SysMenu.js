@@ -1,0 +1,23 @@
+Ext.define("SMSWeb.store.sm.Store4SysMenu",{
+	extend:'Ext.data.Store',
+	alias:'widget.Store4SysMenu',
+	id:'Store4SysMenu',
+	model:'SMSWeb.model.sm.SysMenuModel',
+	pageSize:25,
+	proxy:{
+		type:'ajax',
+		url:'core/sm/getAllSysMenu',
+		reader:{
+			type:'json',
+			root:'content',
+			totalProperty :'totalElements'
+		},
+		writer:{
+			type:'json'
+		},
+		listeners:{  
+	        exception:Ext.ux.DataFactory.exception
+	    }
+	},
+	autoLoad:false
+});

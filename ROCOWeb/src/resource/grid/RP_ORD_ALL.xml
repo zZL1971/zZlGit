@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="订单进度报表" base="/main/sd/pr/" xtype="uxgrid" curd="RE" selModelStatus="false" gridGroupField="createUser" isDateNec="true"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="订单编号" name="orderCode"/>
+				<column xtype="dictcombobox" fieldLabel="订单类型" name="orderType"
+					dict="ORDER_TYPE" />
+				<column xtype="datefield" fieldLabel="订单日期从" name="orderDate"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="到" name="orderDate"
+					format="Y-m-d" />
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="售达方" name="kunnr" />
+				<column xtype="textfield" fieldLabel="售达方名称" name="kunnrName" />
+				<column xtype="dictcombobox" fieldLabel="是否取消" name="isQx"
+					dict="YES_NO" />
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="dictcombobox" fieldLabel="订单环节" name="actName" localData='["","订单审绘","价格审核","客户确认","财务确认","订单审绘子流程","起草","结束"]' />
+				<column xtype="dictcombobox" fieldLabel="当前环节" name="dqActName"  localData='["","订单审绘","价格审核","客户确认","财务确认","订单审绘子流程","起草","结束"]' />
+				<column xtype="datefield" fieldLabel="环节开始时间" name="startTime"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="至" name="startTime"
+					format="Y-m-d" />
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<!-- <column xtype="textfield" fieldLabel="SAP编号" name="sapOrderCode" /> -->
+				<column xtype="textfield" fieldLabel="环节处理人" name="assignee" />
+				<column xtype="datefield" fieldLabel="环节结束时间" name="endTime"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="至" name="endTime"
+					format="Y-m-d" />
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="dictcombobox" fieldLabel="是否样板" name="isYp"
+					dict="YES_NO" />
+				<column xtype="dictcombobox" fieldLabel="是否超期" name="isChaoqi"
+					dict="YES_NO" />
+				<column xtype="dictcombobox" fieldLabel="超期类型" name="expiredType"
+					dict="EXPIRED_ORD_TYPE" />
+				<column xtype="textfield" fieldLabel="创建人" name="createUser" />
+			</column>
+		</column>
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right" />
+		<column dataIndex="shid" hidden="true" name="shid" />
+		<column dataIndex="orderCode" width="120" align="left" text="订单编号" />
+		<!-- <column dataIndex="sapOrderCode" width="120" align="left" text="SAP编号" /> -->
+		<column dataIndex="orderType" width="80" align="left" text="订单类型" />
+		<column dataIndex="orderDate2" width="100" align="center" text="订单日期" />
+		<column dataIndex="kunnr" width="100" align="left" text="售达方" />
+		<column dataIndex="regio" width="120" align="left" text="地区">
+			<editor xtype="dictcombobox" dict="REGIO" editable="false"/>
+		</column>
+		<column dataIndex="kunnrName" width="100" align="left" text="售达方名称" />
+		<column dataIndex="dianMianTel" width="100" align="left" text="店面电话" />
+		<column dataIndex="cusName" width="100" align="left" text="客户姓名" />
+		<column dataIndex="cusTel" width="100" align="left" text="联系电话" />
+		<column dataIndex="cusAddr" width="200" align="left" text="客户地址" />
+		<column dataIndex="createUser" width="100" align="left" text="创建人" />
+		<column dataIndex="createTime" xtype="datecolumn" width="150" align="center" text="创建时间" format="Y-m-d H:i:s"/>
+		<!--<column dataIndex="orderEndTime" xtype="datecolumn" width="150" align="center" 
+			text="订单结束时间" format="Y-m-d H:i:s" /> -->
+		<column dataIndex="actName" width="120" align="left" text="订单环节" />
+		<column dataIndex="dqActName" width="120" align="left" text="当前环节" />
+		<column dataIndex="orderStatus" width="80" align="left" text="订单状态" />
+		<column dataIndex="assignee" width="100" align="left" text="环节处理人" />
+		<column dataIndex="startTime" xtype="datecolumn" width="150" align="center" text="环节开始时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="endTime" xtype="datecolumn"  width="150" align="center" text="环节结束时间"  format="Y-m-d H:i:s"/>
+		<column dataIndex="actEndDate" width="100" align="left" text="环节结束日期" />
+		<column dataIndex="durationTime" width="150" align="left" text="环节处理时间" />
+		<column dataIndex="totalItem" width="70" align="right" text="总行数" summaryType="sum"/>
+		<column dataIndex="gtSum" width="70" align="right" text="柜体数量"  summaryType="sum"/>
+		<column dataIndex="sjSum" width="70" align="right" text="散件数量"  summaryType="sum"/>
+		<column dataIndex="ddymSum" width="90" align="right" text="单独移门数量"  summaryType="sum"/>
+		<column dataIndex="tymj" width="70" align="right" text="投影面积" xtype="numbercolumn" format="0.00" summaryType="sum"/>
+		<column dataIndex="ymss" width="70" align="right" text="移门扇数" summaryType="sum"/>
+		<column dataIndex="ymfs" width="70" align="right" text="移门方数"  xtype="numbercolumn" format="0.00" summaryType="sum"/>
+		<column dataIndex="isYb" width="70" align="center" text="是否样板" />
+		<column dataIndex="isExpired" width="70" align="center" text="是否超期" />
+		<column dataIndex="expiredTypeDesc" width="80" align="center" text="超期类型" />
+		<column dataIndex="expiredReason" width="150" align="center" text="超期原因" />
+	</head>
+	<sql vname="RP_ORD_ALL">
+	<![CDATA[select * from rp_ord_all_test t where 1=1 ]]>
+	</sql>
+</grid>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="在线用户" base="/core/online/user/" xtype="uxgrid" displayfield="userName"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="登录账号" name="userId"/>
+			</column>
+		</column>
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right"/>
+		<column dataIndex="userId" width="100" align="left" text="登录账号"/>
+		<column dataIndex="session" width="270" align="left" text="会话"/>
+		<column dataIndex="userName" width="100" align="left" text="用户名"/>
+		<column dataIndex="roles" flex="1" align="left" text="角色"/>
+		<column dataIndex="ia" width="120" align="left" text="外网IP"/>
+		<column dataIndex="na" width="120" align="left" text="内网IP"/>
+		<!-- 
+	 	<column dataIndex="createTime" xtype="datecolumn" width="140" align="center" text="登录时间" format="Y-m-d H:i:s"/>
+	 	<column dataIndex="optTime" xtype="datecolumn" width="140" align="center" text="最后操作时间" format="Y-m-d H:i:s"/>
+	 	 -->
+	 	<column dataIndex="createTime"  width="180" align="center" text="登录时间"/>
+	 	<column dataIndex="optTime" width="180" align="center" text="最后操作时间"/>
+	 	
+	</head>
+</grid>

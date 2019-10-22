@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="我的起草" showNewWin="Y" taskType="gp_store" curd="D" selModelStatus="true" receiveMode="B" ptype="KUNNR" eidtRowForm="SMSWeb.view.sale.NewSaleWindow" editRowDataCell="orderType" controllers="sale.SaleController,mm.MyGoodsController,mm.MaterialBaseController" base="/main/sale/" deleteMethod="deleteSaleById4Customer"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="hiddenfield" fieldLabel="当前用户" name="assignee" value="CURR_USER_LOGIN_NO"/>
+				<column xtype="textfield" fieldLabel="订单编号" name="orderCode"/>
+				<column xtype="dictcombobox" fieldLabel="订单类型" name="orderType" dict="ORDER_TYPE" editable="false"/>
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="datefield" fieldLabel="订单日期[S]" name="orderDate" format="Y-m-d"/>
+				<column xtype="datefield" fieldLabel="订单日期[E]" name="orderDate" format="Y-m-d"/>
+				<column xtype="dictcombobox" fieldLabel="处理时效" name="handleTime" dict="HANDLE_TIME" editable="false"/>
+			</column>
+		</column>
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right"/>
+		<column xtype="actioncolumn" width="38" align="center" text="操作">
+			<item icon="/resources/images/remarks1.png" tooltip="编辑" handler="itemEditButtonClick"/>
+		</column>
+		<column dataIndex="id" width="100" align="left" hidden="true" text="订单ID">
+		</column>
+		<column dataIndex="orderCode" width="300" align="left" text="订单编号">
+		</column>
+		<column dataIndex="orderType" width="150" align="left" text="订单类型">
+			<editor xtype="dictcombobox" dict="ORDER_TYPE" editable="false"/>
+		</column>
+		<column dataIndex="orderDate" xtype="datecolumn" width="100" align="center" text="订单日期" format="Y-m-d">
+		</column>
+		<column dataIndex="handleTime" width="100" align="center" text="处理时效">
+			<editor xtype="dictcombobox" dict="HANDLE_TIME" editable="false"/>
+		</column>
+		<column dataIndex="groupId" width="100" align="left" text="审批用户组">
+		</column>
+		<column dataIndex="assignee" width="100" align="left" text="审批用户">
+		</column>
+		<column dataIndex="claimTime" xtype="datecolumn" width="150" align="center" text="领取时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="jdName" width="100" align="left" text="当前环节">
+		</column>
+	</head>
+	<sql vname="bpm_task_store">
+	<![CDATA[ 
+	select * from (
+	select a.uuid,a.group_id,a.assignee,a.claim_Time,b.* 
+	from view_bpm_activity_task a ,sale_header b where a.uuid=b.id and a.group_id='gp_store' 
+	union all
+	select null as uuid,null as group_id,cast(b.create_user as nvarchar2(255)) as assignee,null as claim_Time,b.* 
+	from sale_header b where b.id not in (select a.id from  act_ct_mapping a))  ORDER BY CREATE_TIME DESC 
+	]]>
+		<format name="orderDate" dateFormat="yyyy-MM-dd"/>
+	</sql>
+</grid>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<head>
+		<column dataIndex="name" width="140" align="left" text="任务名称" />
+		<column dataIndex="assignee" width="100" align="left" text="受理人 " hidden="true"/>
+		<column dataIndex="claimTime"  xtype="datecolumn" width="150" align="center" hidden="true" text="受理时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="commentUserId" width="100" align="left" text="处理人"  hidden="true"/>
+		<column dataIndex="commentMessage" width="200" align="left" text="处理意见"/>
+		<column dataIndex="createTime" xtype="datecolumn" width="150" hidden="true" align="center" text="开始时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="endTime" xtype="datecolumn" width="150" hidden="true" align="center" text="结束时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="waste" width="140" align="right" text="任务耗时"/>
+	</head>
+</grid>

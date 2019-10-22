@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="订单审核日报表" base="/main/sd/pr/" xtype="uxgrid" selModelStatus="false" gridGroupField="createUser"  curd="RE"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="datefield" fieldLabel="日期" name="logDate" format="Y-m-d" /> 
+				<column xtype="dictcombobox" fieldLabel="岗位" name="post1"  localData='["","2020绘图","IMOS绘图","物料审核","移门算料","孔位审核"]'/>
+				<column xtype="textfield" fieldLabel="姓名" name="userName" />
+				<column xtype="dictcombobox" fieldLabel="组别" name="drawingGroup"  dict="DRAWING_GROUP" />
+			</column>
+		</column>
+	</search>
+	
+	<head>
+		<column xtype="rownumberer" width="40" align="right"/>
+		<column dataIndex="logDate" xtype="datecolumn" width="145" align="center" text="日期" format="Y-m-d" />
+		<column dataIndex="drawingGroup" width="100" align="left" text="组别" >
+			<editor xtype="dictcombobox" dict="DRAWING_GROUP" editable="false" />
+		</column>
+ 		<column dataIndex="post1" width="100" align="left"  text="岗位" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="userName" width="100" align="left" text="姓名" />
+		<column dataIndex="userId" width="80" align="left" text="ID" />
+		<column dataIndex="comSquare"  width="100" align="left" text="完成方数"  >
+		<editor xtype="textfield" editable="true" />
+		</column>
+		<column dataIndex="rowsNumber"  width="120" align="left" text="完成行项目数" editable="false" />
+		<column dataIndex="cabTarget"  width="120" align="left" text="柜体目标" editable="false" />
+		<column dataIndex="cabGap"  width="120" align="left" text="柜体差距" editable="false" />	
+<!--		<column dataIndex="quality"  width="100" align="left" text="质量" editable="false" />
+ 		<column dataIndex="quaTarget"  width="100" align="left" text="质量目标 "/>
+		<column dataIndex="quaGap"  width="100" align="left" text="质量差距" editable="false" />		 -->
+		<column dataIndex="punishCount"  width="100" align="left" text="罚单数量" />
+
+	</head>
+	<sql vname="ORD_EXAMINE">
+	<![CDATA[
+		select * from ORD_EXAMINE
+
+	]]>
+	<format name="logDate" dateFormat="yyyy-MM-dd"/>
+	</sql>
+</grid>

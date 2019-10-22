@@ -1,0 +1,21 @@
+Ext.define("SMSWeb.model.mm.pc.ModelMaterialPrice", {
+	extend:'Ext.data.Model',
+	fields:[
+		{name:'id'},
+		{name:'pid'},
+		{name:'type'},
+		{name:'name'},
+		{name:'color'},
+		{name:'wide',type:'int',defaultValue:0},
+		{name:'high',type:'int',defaultValue:0},
+		{name:'deep',type:'int',defaultValue:0},
+		{name:'amount',type:'int',defaultValue:0},
+		{name:'unit'},
+		{name:'area',type:'int',defaultValue:0},
+		{name:'unitPrice',type:'int',defaultValue:0},
+		{name:'totalPrice',type:'int',defaultValue:0},
+		{name:'rebate',type:'int',defaultValue:1},
+		{name:'netPrice',type:'int',defaultValue:0},
+		{name:'line'}
+		]
+});

@@ -1,0 +1,16 @@
+Ext.define("SRM.model.trie.TreeModel",{
+	extend:'Ext.data.Model',
+	fields:[
+		{name:'id',type:'string'},
+		{name:'keyVal',type:'string'},
+		{name:'type',type:'string'},
+		{name:'orderBy',type:'string'},
+		{name:'text',type:'string',mapping:'descZhCn'},
+		{name:'descZhTw',type:'string'},
+		{name:'descEnUs',type:'string'},
+		{name:'expanded',type:'boolean',defaultValue:true},
+		{name:'parent.id',type:'string'},
+		{name:'leaf',type:'boolean',defaultvalue:true},
+		{name:'icon',type:'string'}
+	]
+});

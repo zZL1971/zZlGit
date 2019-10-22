@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ROCOWeb" default="makewar" basedir=".">  
+
+  <property name="webapp" value="webapp" />  
+
+  <property name="classes" value="webapp/WEB-INF/classes" />  
+
+  <property name="build" value="build" />  
+
+  <property name="lib" value="webapp/WEB-INF/lib/" />  
+
+  
+  <!--项目依赖的第三方jar包路径-->  
+
+  <path id="lib_classpath">   
+
+    <fileset dir="${lib}">    
+
+      <include name="*.jar" />   
+
+    </fileset>   
+
+  	<!--
+    <fileset dir="${tomcatHome}">    
+
+      <include name="**/*.jar" />   
+
+    </fileset>  
+    -->
+
+  </path>
+
+   <target name="cleanBuild" description="删除build目">   
+
+    <delete dir="${build}" />   
+
+    <delete dir="${classes}" />  
+
+  </target>
+
+   <target name="compile" depends="cleanBuild" description="建立${classes}路径，并编译class文件到${classes}路径下">   
+
+    <mkdir dir="${classes}" />   
+
+    <!--执行编译-->   
+
+    <javac target="1.7" source="1.7" srcdir="src" destdir="${classes}" encoding="utf-8">  
+		<!-- 增加参数,Linux下编译不忽略action 的debug级别 -->
+		<compilerarg value="-g:lines,vars,source"/>
+	
+      <!--引入项目依赖的第三方jar包-->     
+
+      <classpath refid="lib_classpath" />    
+
+    </javac>  
+
+  </target>
+
+   <target name="prepare" depends="compile" description="将application、properties...等配置文件拷贝到${classes}路径下">   
+
+    <!--拷贝所有的xml配置文件-->   
+
+    <copy todir="${classes}">    
+
+      <fileset dir="src/resource">     
+
+        <include name="**/*.xml" />   
+      	
+      	<exclude if="excludeQuartz" name="**/applicationContext-quartz.xml"/>
+
+      </fileset>   
+
+    </copy>   
+
+    <!--拷贝所有的属性文件-->   
+
+    <copy todir="${classes}">    
+
+      <fileset dir="src/resource">     
+
+        <include name="**/*.properties" />    
+
+      </fileset>   
+
+    </copy> 
+   	<copy todir="${classes}">    
+
+      <fileset dir="src/resource">     
+
+        <include name="**/*.bpmn" />    
+
+      </fileset>   
+
+    </copy> 
+
+    <mkdir dir="${build}/${ant.project.name}" />   
+
+    <!--拷贝所有的文件到build目录-->   
+
+    <copy todir="${build}/${ant.project.name}/">    
+
+      <fileset dir="${webapp}">    </fileset>   
+
+    </copy>  
+
+   </target>  
+
+
+	<target name="makewar" depends="prepare">
+		<war warfile="${build}/${ant.project.name}.war" webxml="${build}/${ant.project.name}/WEB-INF/web.xml">
+			<lib dir="${build}/${ant.project.name}/WEB-INF/lib">
+				<include name="**" />
+				<exclude name="**/servlet-api.jar"/>
+			</lib>
+			<classes dir="${build}/${ant.project.name}/WEB-INF/classes" />
+			<fileset dir="${build}/${ant.project.name}" />
+		</war>
+	</target>
+
+</project>

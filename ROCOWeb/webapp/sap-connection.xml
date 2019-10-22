@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Connections>
+	<SapConnection name="ABAP_POOL_CON_SFOUR_CLIENT" index="0" isFreeze="false">
+		<Host>172.16.3.10</Host>
+		<System>00</System>
+		<Client>600</Client>
+		<User>zjava</User>
+		<Password>654321</Password>
+		<Lang>zh</Lang>
+		<PoolCapacity>100</PoolCapacity>
+		<PeakLimit>800</PeakLimit>
+	</SapConnection>
+	<SapConnection name="ABAP_POOL_CON_OLDER_CLIENT" index="1" isFreeze="false">
+		<Host>172.16.3.224</Host>
+		<System>00</System>
+		<Client>800</Client>
+		<User>zjava</User>
+		<Password>654321</Password>
+		<Lang>zh</Lang>
+		<PoolCapacity>100</PoolCapacity>
+		<PeakLimit>800</PeakLimit>
+	</SapConnection>
+</Connections>

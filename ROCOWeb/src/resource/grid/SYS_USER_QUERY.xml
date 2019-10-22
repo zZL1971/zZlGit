@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<toolbar>
+		<button type="new" handler="MeWeb.view.user.userForm"/>
+		<button type="delete" handler="/dd/delete"/>
+		<button type="export" handler="ddd"/>
+	</toolbar>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="订单编号" name="orderCode"/>
+				<column xtype="dfield" fieldLabel="订单日期" name="orderDate"/>
+			</column>
+		</column>
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right"/>
+		<column xtype="actioncolumn" width="38" align="center" text="操作">
+			<item icon="/resources/images/remarks1.png" tooltip="编辑" handler="itemEditButtonClick"/>
+			<!--<item icon="/resources/images/remarks2.png" tooltip="编辑2" handler="itemEditButtonClick"/>-->
+		</column>
+		<column dataIndex="loginNo" width="100" align="center" text="登陆账号">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="userNo" width="100" align="center" text="用户编号" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="userName" width="100" align="center" text="用户名" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="userType" width="100" align="center" text="用户类型" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="userGroup" width="100" align="center" text="用户组" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="sex" width="100" align="center" text="性别" filterable="true">
+		</column>
+		<column dataIndex="createTime" xtype="datecolumn" width="150" align="center" text="创建时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="updateTime" xtype="datecolumn" width="150" align="center" text="更新时间" format="Y-m-d H:i:s"/>
+	</head>
+	<sql>
+	<![CDATA[ select * from sys_user where 1=1 ]]>
+	</sql>
+</grid>

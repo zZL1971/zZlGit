@@ -1,0 +1,18 @@
+Ext.define("SMSWeb.store.mm.pc.Store4PriceCondition",{
+	extend:'Ext.data.Store',
+	model:'SMSWeb.model.mm.pc.PriceConditionModel',
+	proxy:{
+		type:'ajax',
+		url:'main/mm/queryPriceConditionList',
+		reader:{
+			type:'json'
+		},
+		writer:{
+			type:'json'
+		},
+		listeners:{  
+	        exception:Ext.ux.DataFactory.exception
+	    }
+	},
+	autoLoad:false
+});

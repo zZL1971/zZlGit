@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="异常错误报表" base="/main/sd/pr/" xtype="uxgrid" curd="RE"  gridGroupField="taskDefinitionKey" />
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+					<column xtype="dictcombobox" fieldLabel="错误节点" name="targetTaskName" localData='["","订单审绘","物料审核","价格审核","确认报价","2020绘图","客户确认","客户","财务确认","IMOS绘图","孔位审核","客服起草","起草","订单审绘重审","移门算料"]'/>
+					<column xtype="dictcombobox" fieldLabel="发现错误节点" name="taskname" localData='["","订单审绘","物料审核","价格审核","确认报价","2020绘图","客户确认","财务确认","IMOS绘图","孔位审核","订单审绘重审","移门算料"]' />
+					<column xtype="datefield" fieldLabel="发现日期 从" name="updateTime"	format="Y-m-d" />
+					<column xtype="datefield" fieldLabel="到" name="updateTime"	format="Y-m-d" />
+			</column>
+		</column>
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right" />
+		<column dataIndex="mappingSid" width="120" align="left" text="订单编号"/>
+		<column dataIndex="custId" width="100" align="left" text="售达方"/>
+		<column dataIndex="errDesc" width="200" align="left" text="错误描述"/>
+		<column dataIndex="targetTaskName" width="100" align="left" text="出错环节"/>
+		<column dataIndex="updateTime" xtype="datecolumn"  width="150" align="center" text="发现时间"  format="Y-m-d H:i:s"/>
+		<column dataIndex="errType" width="100" align="left" text="出错类型"/>
+		<column dataIndex="updateUser" width="100" align="left" text="发现人"/>
+		<column dataIndex="taskname" width="100" align="left" text="发现环节"/>
+		<column dataIndex="assignee" width="120" align="left" text="错误环节处理人"/>
+		<column dataIndex="name1" width="100" align="left" text="售达方名称"/>
+	</head>
+	<sql vname="RP_ERR_LOG">
+	<![CDATA[select * from err_log_rp t where 1=1 ]]>
+	</sql>
+</grid>

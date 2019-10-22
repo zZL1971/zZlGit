@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<head>
+		<column text="id" dataIndex="id" width="0" align="left" />
+		<column text="orderid" dataIndex="orderid" width="100" align="left" />
+		<column text="name1" dataIndex="name1" width="100" align="left" />
+		<column text="wgname" dataIndex="wgname" width="100" align="left" />
+		<column text="machining" dataIndex="machining" width="100" align="left" />
+		<column text="wgtype" dataIndex="wgtype" width="100" align="left" />
+		<column text="info1" dataIndex="info1" width="100" align="left" />
+		<column text="info2" dataIndex="info2" width="100" align="left" />
+		
+		<column text="ipx" dataIndex="ipx" width="100" align="left" />
+		<column text="ipy" dataIndex="ipy" width="100" align="left" />
+		<column text="ipz" dataIndex="ipz" width="100" align="left" />
+		
+		<column text="orx" dataIndex="orx" width="100" align="left" />
+		<column text="ory" dataIndex="ory" width="100" align="left" />
+		<column text="orz" dataIndex="orz" width="100" align="left" />
+		
+		<column text="epx" dataIndex="epx" width="100" align="left" />
+		<column text="epy" dataIndex="epy" width="100" align="left" />
+		<column text="epz" dataIndex="epz" width="100" align="left" />
+		
+		<column text="cnt" dataIndex="cnt" width="100" align="left" />
+		<column text="length" dataIndex="length" width="100" align="left" />
+		<column text="dia" dataIndex="dia" width="100" align="left" />
+		<column text="de" dataIndex="de" width="100" align="left" />
+		<column text="ortype" dataIndex="ortype" width="100" align="left" />
+		<column text="difftype" dataIndex="difftype" width="100" align="left" />
+		
+	</head>
+	<sql vname="IMOS_IDBWG_VIEW">
+	<![CDATA[select t.*  from imos_idbwg t inner join material_head t2 on t.orderid = t2.id ]]>
+	</sql>
+</grid>

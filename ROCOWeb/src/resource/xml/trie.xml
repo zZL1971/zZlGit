@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--By Supcan TreeList -->
+<TreeList>
+	<Properties Title="dicts report" HeaderFontIndex="2" rowHeight="24" autoBreakLine="3"></Properties>
+	<Fonts>
+		<Font faceName="Consolas"/>
+		<Font />
+		<Font faceName="微软雅黑" bold="1"/>
+		<Font bold="true" />
+		<Font faceName="微软雅黑" size="18"/>
+	</Fonts>
+	<Cols>
+		<Group title="Dict Index" textColor="#3333ff">
+			<Col name="adesc_en_us" mergeCell="true" width="200">desc_en_us</Col>
+			<Col name="adesc_zh_cn" mergeCell="true" width="200">desc_zh_cn</Col>
+		</Group>
+		<Group title="Dict" textColor="#3333ff">
+			<Col name="desc_en_us" mergeCell="true" width="200">desc_en_us</Col>
+			<Col name="desc_zh_cn" mergeCell="true" width="200">desc_zh_cn</Col>
+		</Group>
+	</Cols>
+	<Search>
+		<![CDATA[
+			[{
+				layout : 'hbox',
+				xtype : 'fieldcontainer',
+				items : [{
+							xtype : 'textfield',
+							fieldLabel : 'Desc(en_US)',
+							name : 'desc_en_us'
+						}, {
+							xtype : 'textfield',
+							fieldLabel : 'Desc(zh_CN)',
+							name : 'adesc_zh_cn'
+						}]
+			}]
+		]]>
+	</Search>
+	<sql vname="vreport_agio_trie_dict">
+	<![CDATA[select a.desc_en_us as adesc_en_us, a.desc_zh_cn as adesc_zh_cn, b.desc_en_us, b.desc_zh_cn
+  from sys_trie_tree a, sys_data_dict b
+ where a.id = b.trie_id
+   and b.desc_en_us is not null
+ order by a.desc_en_us
+]]>
+	</sql>
+</TreeList>

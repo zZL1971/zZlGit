@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="商品进度报表" base="/main/sd/pr/" xtype="uxgrid" curd="RE" selModelStatus="false" gridGroupField="assignee" isDateNec="true"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="订单编号" name="orderCode"/>
+				<column xtype="textfield" fieldLabel="售达方名称" name="kunnrName" />
+				<column xtype="dictcombobox" fieldLabel="订单环节" name="actName"
+					localData='["","炸单(外部)","2020绘图","IMOS绘图","物料审核","移门算料","孔位审核","订单审绘重审","客户"]'  />
+				<column xtype="dictcombobox" fieldLabel="当前环节" name="dqActName"
+					localData='["","炸单(外部)","2020绘图","IMOS绘图","物料审核","移门算料","孔位审核","订单审绘重审","客户"]'  />
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+			   <column xtype="textfield" fieldLabel="环节处理人" name="assignee" />
+				<column xtype="dictcombobox" fieldLabel="是否超期" name="isChaoqi"
+					dict="YES_NO" />
+				<column xtype="dictcombobox" fieldLabel="超期类型" name="expiredType"
+					dict="EXPIRED_ORD_TYPE" />
+				<column xtype="textfield" fieldLabel="行号" name="posex"/>
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="datefield" fieldLabel="订单日期从" name="orderDate"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="到" name="orderDate"
+					format="Y-m-d" />
+				<column xtype="dictcombobox" fieldLabel="是否出错" name="isErr"
+					dict="YES_NO" />
+				<column xtype="textfield" fieldLabel="创建人" name="createUser" />
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="datefield" fieldLabel="环节开始时间" name="startTime"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="至" name="startTime"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="环节结束时间" name="endTime"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="至" name="endTime"
+					format="Y-m-d" />
+
+			</column>
+		</column>
+		<!-- <column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="datefield" fieldLabel="最后开始时间" name="startTime"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="至" name="startTime"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="最后结束时间" name="endTime"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="至" name="endTime"
+					format="Y-m-d" />
+			</column>
+		</column>-->
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="dictcombobox" fieldLabel="行项目类型" name="typeDesc" localData='["","单独移门","柜体","散件"]' />
+				<column xtype="textfield" fieldLabel="物料描述" name="maktx"/>
+				<column xtype="dictcombobox" fieldLabel="订单类型" name="orderType"
+					dict="ORDER_TYPE" />
+			</column>
+		</column>
+		
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right" />
+		<column dataIndex="shid" hidden="true" name="shid" />
+		<column dataIndex="orderCode" width="120" align="left" text="订单编号" />
+		<column dataIndex="orderType" width="110" align="center" text="订单类型">
+			<editor xtype="dictcombobox" dict="ORDER_TYPE" editable="false" />
+		</column>
+		<column dataIndex="posex" width="50" align="left" text="行号" />
+		<column dataIndex="typeDesc" width="100" align="left" text="行项目类型"/>
+		<column dataIndex="regio" width="120" align="left" text="地区"></column>
+		<column dataIndex="kunnrName" width="100" align="left" text="售达方名称" />
+		<column dataIndex="maktx" width="150" align="left" text="物料描述" />
+		<column dataIndex="createUser" width="100" align="left" text="创建人" />
+		<column dataIndex="createTime" width="150" align="center" text="创建时间" xtype="datecolumn" format="Y-m-d H:i:s"/>
+		<column dataIndex="actName" width="120" align="left" text="订单环节" />
+		<column dataIndex="dqActName" width="120" align="left" text="当前环节" />
+		<column dataIndex="assignee" width="100" align="left" text="环节处理人" />
+		<column dataIndex="checkDrawUser" width="80" align="left" text="审绘员" />
+		<column dataIndex="pdfUploadTime" width="150" align="center" text="图纸上传时间" xtype="datecolumn" format="Y-m-d H:i:s"/>
+		<column dataIndex="uploadCount" width="90" align="right" text="上传次数" />
+		<!-- <column dataIndex="redoTime" width="70" align="right" text="处理次数"/>-->
+		<column dataIndex="startTime" width="150" align="center" text="环节开始时间" xtype="datecolumn" format="Y-m-d H:i:s" />
+		<column dataIndex="endTime"  width="150" align="center" text="环节结束时间" xtype="datecolumn" format="Y-m-d H:i:s" />
+		<!-- <column dataIndex="maxStartTime" width="150" align="center" text="环节最后开始时间" xtype="datecolumn" format="Y-m-d H:i:s" />
+		<column dataIndex="maxEndTime"  width="150" align="center" text="环节最后结束时间" xtype="datecolumn" format="Y-m-d H:i:s" />-->
+		<column dataIndex="durationTime" width="150" align="left" text="环节处理时间" />
+		<column dataIndex="zztyar" width="70" align="right" text="投影面积" xtype="numbercolumn" format="0.00" summaryType="sum"/>
+		<column dataIndex="zzymss" width="70" align="right" text="移门扇数"  summaryType="sum"/>
+		<column dataIndex="zzymfs" width="70" align="right" text="移门方数"  summaryType="sum"/>
+		<column dataIndex="zzzkar" width="70" align="right" text="展开面积" xtype="numbercolumn" format="0.00" summaryType="sum"/>
+		<column dataIndex="hasChaoqi" width="70" align="center" text="是否超期" />
+		<column dataIndex="hasErr" width="70" align="center" text="是否出错"/>
+		<column dataIndex="expiredTypeDesc" width="80" align="center" text="超期类型" />
+		<column dataIndex="expiredReason" width="180" align="left" text="超期原因"/>
+	</head>
+	<sql vname="RP_ORD_SUB">
+	<![CDATA[select t.* from RP_ORD_SUB1 t where 1=1 ]]>
+	</sql>
+</grid>
