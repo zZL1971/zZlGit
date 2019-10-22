@@ -1,0 +1,18 @@
+Ext.define("SMSWeb.store.sale.Store4MaterialBJ",{
+	extend:'Ext.data.Store',
+	model:'SMSWeb.model.sale.MaterialBJModel',
+	proxy:{
+		type:'ajax',
+		url:'main/myGoods/getMaterialSanjianItemList',
+		reader:{
+			type:'json'
+		},
+		writer:{
+			type:'json'
+		},
+		listeners:{  
+	        exception:Ext.ux.DataFactory.exception
+	    }
+	},
+	autoLoad:false
+});

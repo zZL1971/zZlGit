@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config isPage="false"/>
+	<head>
+		<column xtype="rownumberer" width="40" align="right"/>
+		<column xtype="actioncolumn" width="40" align="center" text="操作" hidden="true" hideable="false">
+			<item icon="/resources/images/remarks1.png" tooltip="编辑" handler="itemEditButtonClick"/>
+		</column>
+		<column text="物料编码" dataIndex="render" width="120" align="left">
+			<editor xtype="textfield" selectOnFocus="true"/>
+		</column>
+		<column text="名称" dataIndex="name" width="200" align="left">
+			<editor xtype="textfield" selectOnFocus="true"/>
+		</column>
+		<column text="完工厚度" dataIndex="thickness" width="80" align="right">
+			<editor xtype="numberfield" selectOnFocus="true" mouseWheelEnabled="false"/>
+		</column>
+		<column text="完工宽度" dataIndex="width" width="80" align="right">
+			<editor xtype="numberfield" selectOnFocus="true" mouseWheelEnabled="false"/>
+		</column>
+		<column text="完工长度" dataIndex="length" width="80" align="right">
+			<editor xtype="numberfield" selectOnFocus="true" mouseWheelEnabled="false"/>
+		</column>
+		<column text="原材料描述" dataIndex="matname" width="150" align="left">
+			<editor xtype="textfield" selectOnFocus="true"/>
+		</column>
+		<column text="数量" dataIndex="cntsum" width="60" align="right">
+		</column>
+		<column text="识别码" dataIndex="info1" width="60" align="left">
+			<editor xtype="textfield" selectOnFocus="true"/>
+		</column>
+	</head>
+	<sql vname="show_materialcg03">
+	<!-- 五金	A、	TYP=3 且 标识码= H*
+B、	TYP=8 且 标识码= H01~H12	A、	取出五金线的半成品
+B、	取出五金线的原材料
+	 -->
+	<![CDATA[
+
+select  orderid,
+       typ,
+       name,
+       length,
+       width,
+       thickness,
+       info1,
+       matname,
+        render,
+       count(cnt) cntsum 
+       from (
+select orderid,
+       typ,
+       name,
+       length,
+       width,
+       thickness,
+       info1,
+       matname,
+       cnt,
+       (select ii.render from imos_idbext ii where ii.orderid=t.orderid and ii.parentid=t.id and render is not null and render <>'NO_RENDER') as render
+       --count(cnt) cntsum
+  from imos_idbext t
+ where info1='CG03'
+) group by 
+orderid,
+       typ,
+       name,
+       length,
+       width,
+       thickness,
+       info1,
+       matname,render
+	]]>
+	</sql>
+</grid>

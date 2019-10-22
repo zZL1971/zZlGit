@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="角色管理" base="/core/role/" xtype="uxtreegrid"/>
+	<form>
+		<column xtype="textfield" fieldLabel="角色名称" name="descZhCn" allowBlank="false"/>
+		<column xtype="textfield" fieldLabel="角色名称" name="descEnUs" hidden="true"/>
+		<column xtype="textfield" fieldLabel="角色名称" name="descZhTw" hidden="true"/>
+		<column xtype="textfield" fieldLabel="父角色" name="parent.id"/>
+		<column xtype="numberfield" fieldLabel="排序" name="orderBy"/>
+		<column xtype="fieldset" title="系统信息">
+			<column xtype="textfield" fieldLabel="UUID" name="id"  readOnly="true" fieldStyle="background:#E6E6E6"/>
+			<column xtype="datefield" fieldLabel="创建时间" name="createTime" format="Y-m-d H:i:s" fieldStyle="background:#E6E6E6" readOnly="true"/>
+			<column xtype="textfield" fieldLabel="创建人" name="createUser"  readOnly="true" fieldStyle="background:#E6E6E6"/>
+			<column xtype="datefield" fieldLabel="更新时间" name="updateTime" format="Y-m-d H:i:s" fieldStyle="background:#E6E6E6" readOnly="true"/>
+			<column xtype="textfield" fieldLabel="更新人" name="updateUser"  readOnly="true" fieldStyle="background:#E6E6E6"/>
+		</column>
+	</form>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="角色名称" name="descZhCn"/>
+			</column>
+		</column>
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right"/>
+		<column xtype="treecolumn" dataIndex="descZhCn" flex="1" align="left" text="角色名称"/>
+		<column dataIndex="createTime" xtype="datecolumn" width="140" align="center" text="创建时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="updateTime" xtype="datecolumn" width="140" align="center" text="更新时间" format="Y-m-d H:i:s"/>
+	</head>
+	<sql vname="sys_role">
+	<![CDATA[select * from sys_role a start with a.id ='root' connect by prior a.id=a.pid order siblings by order_by ]]>
+	</sql>
+</grid>

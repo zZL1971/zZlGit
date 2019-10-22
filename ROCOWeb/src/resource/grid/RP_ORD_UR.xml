@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="加急订单报表" base="/main/sd/pr/" xtype="uxgrid" selModelStatus="false" gridGroupField="createUser"  curd="RE"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="订单号" name="orderCode"/>
+				<column xtype="tablecombobox" fieldLabel="售达方" name="shouDaFang" table="cust_header" dataid="kunnr" datatext="name1" showKey="true"/>
+				<column xtype="dictcombobox" fieldLabel="订单环节" name="actName" dict="ORDER_HUAN_JIE" />
+				<column xtype="textfield" fieldLabel="完成用时" name="completeTime"/> 
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="售达方名称" name="kunnrName1" />
+				<column xtype="datefield" fieldLabel="订单日期[S]" name="orderDate" format="Y-m-d"/>
+				<column xtype="datefield" fieldLabel="订单日期[E]" name="orderDate" format="Y-m-d"/>
+				<column xtype="dictcombobox" fieldLabel="订单类型" name="orderType"
+				dict="ORDER_TYPE" /> 
+			</column>
+		</column>
+				<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="dictcombobox" fieldLabel="是否样品" name="isYp"
+				dict="YES_NO" /> 
+				<column xtype="dictcombobox" fieldLabel="加急类型" name="urgentType" 
+				dict="URGENT_TYPE" /> 
+				<column xtype="dictcombobox" fieldLabel="店分类" name="shopCls" dict="MARKET"/>
+				<column xtype="dictcombobox" fieldLabel="店(1店/N店)" name="shop" dict="NEW"/>
+			</column>
+			
+		</column>
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right"/>
+		<column dataIndex="orderCode" width="140" align="left" text="订单号">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="orderType" width="90" align="center" text="订单类型">
+			<editor xtype="dictcombobox" dict="ORDER_TYPE" editable="false"/>
+		</column>
+		<column dataIndex="orderDate" xtype="datecolumn" width="145" align="center" text="订单日期" format="Y-m-d"/>
+		<column dataIndex="shouDaFang" width="90" align="center"  text="售达方" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="kunnrName1" width="100" align="left"  text="售达方名称" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="isYpDesc" width="80" align="center"  text="是否样品" filterable="true"/>
+		<column dataIndex="actName" width="115" align="left" text="当前环节" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+  		<column dataIndex="createTime" xtype="datecolumn" width="140" align="center" text="创建时间" format="Y-m-d H:i:s"/> 
+		<column dataIndex="contime" xtype="datecolumn" width="145" align="center" text="确认报价环节时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="completeTime"  width="140" align="center" text="完成用时" />
+		<column dataIndex="urgentTypeDesc"  width="100" align="center" text="加急类型" />
+		<column dataIndex="urgentTime" xtype="datecolumn" width="145" align="center" text="加急时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="shopCls"  width="100" align="center" text="店分类" >
+			<editor xtype="dictcombobox" dict="MARKET" editable="false"/>
+		</column>
+		<column dataIndex="shop"  width="100" align="center" text="店(1店/N店)" >
+			<editor xtype="dictcombobox" dict="NEW" editable="false"/>
+		</column>
+		<column dataIndex="namev"  width="100" align="center" text="设计师" />
+	</head>
+	<sql vname="URGENT_TASK">
+	<![CDATA[
+		select * from urgent_order
+	]]>
+	<format name="orderDate" dateFormat="yyyy-MM-dd"/>
+	</sql>
+</grid>

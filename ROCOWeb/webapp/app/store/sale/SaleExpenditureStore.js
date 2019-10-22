@@ -1,0 +1,21 @@
+Ext.define("SMSWeb.store.sale.SaleExpenditureStore",{
+	extend:'Ext.data.Store',
+	alias:'widget.SaleExpenditureStore',
+	model:'SMSWeb.model.sale.SaleExpenditureModel',
+	remoteSort:false,
+	pageSize:25,
+	proxy:{
+		type:'ajax',
+		url:'main/myGoods/getExpenditure',
+		reader:{
+			type:'json'
+		},
+		writer:{
+			type:'json'
+		},
+		listeners:{  
+	        exception:Ext.ux.DataFactory.exception
+	    }
+	},
+	autoLoad:false
+});

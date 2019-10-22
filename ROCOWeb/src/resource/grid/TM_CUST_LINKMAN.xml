@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="客户设计师管理" base="/main/cust/lm/" xtype="uxgrid" curd="CRDE"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="hiddenfield" fieldLabel="客户编码" name="kunnr" value="CURR_USER_KUNNR"/>
+				<column xtype="textfield" fieldLabel="姓名" name="namev"/>
+			</column>
+		</column>
+	</search>
+	<form>
+		<column xtype="textfield" fieldLabel="流水号" name="parnr" fieldStyle="background:#E6E6E6" readOnly="true"/>
+		<column xtype="textfield" fieldLabel="部门" name="abtnr" value="0099" fieldStyle="background:#E6E6E6" readOnly="true"/>
+		<column xtype="textfield" fieldLabel="部门描述" name="vtext" value="设计师" fieldStyle="background:#E6E6E6" readOnly="true"/>
+		<column xtype="textfield" fieldLabel="名称" name="name1" value="绘图设计师" fieldStyle="background:#E6E6E6" readOnly="true"/>
+		<column xtype="textfield" fieldLabel="姓名" name="namev" allowBlank="false"/>
+		<column xtype="textfield" fieldLabel="称谓" name="anred" allowBlank="true"/>
+		<column xtype="textfield" fieldLabel="电话号码" name="telNumber" allowBlank="false" vtype="contactCN"/>
+		<column xtype="textfield" fieldLabel="QQ" name="qqNum" allowBlank="false"/>
+		<column xtype="dictcombobox" fieldLabel="是否启用" name="status" dict="YES_NO" allowBlank="false"/>
+		<column xtype="textfield" fieldLabel="门店代码" name="kunnr" value="CURR_USER_KUNNR" fieldStyle="background:#E6E6E6" readOnly="true"/>
+		<column xtype="fieldset" title="系统信息">
+			<column xtype="textfield" fieldLabel="UUID" name="id" fieldStyle="background:#E6E6E6" readOnly="true"/>
+			<column xtype="datefield" fieldLabel="创建时间" name="createTime" format="Y-m-d H:i:s" fieldStyle="background:#E6E6E6" readOnly="true"/>
+			<column xtype="textfield" fieldLabel="创建人" name="createUser"  readOnly="true" fieldStyle="background:#E6E6E6"/>
+			<column xtype="datefield" fieldLabel="更新时间" name="updateTime" format="Y-m-d H:i:s" fieldStyle="background:#E6E6E6" readOnly="true"/>
+			<column xtype="textfield" fieldLabel="更新人" name="updateUser"  readOnly="true" fieldStyle="background:#E6E6E6"/>
+		</column>
+	</form>
+	<head>
+		<column xtype="rownumberer" width="30" align="right"/>
+		<column xtype="actioncolumn" width="48" align="center" text="操作">
+			<item icon="/resources/images/28.png" tooltip="编辑" handler="itemEditButtonClick"/>
+		</column>
+		<column dataIndex="id" width="140" align="left" hidden="true" text="ID">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="parnr" width="100" align="center" text="流水号">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="name1" width="100" align="center" text="名称">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="kunnr" width="90" align="center" text="客户编码" hidden="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="namev" width="70" align="center"  text="姓名" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="abtnr" width="80" align="center"  text="部门" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="vtext" width="100" align="center" text="部门描述" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="telNumber" width="130" align="center"  text="电话" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="qqNum" width="120" align="center"  text="QQ" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="anred" width="80" align="center"  text="称谓" filterable="true" hidden="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="status" width="100" align="center"  text="状态" filterable="true">
+			<editor xtype="dictcombobox" dict="YES_NO" editable="false"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="createUser" width="80" align="center"  text="创建人" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="createTime" xtype="datecolumn" width="140" align="center" text="创建时间" format="Y-m-d H:i:s"/>
+	</head>
+	<sql vname="cust_link_man">
+	<![CDATA[select * from CUST_CONTACTS where 1=1 and abtnr='0099']]>
+	</sql>
+</grid>

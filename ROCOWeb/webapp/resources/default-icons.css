@@ -1,0 +1,260 @@
+.lorry_go{
+	background-image:url("images/lorry_go.png") !important;
+}
+.active{
+	background-image:url("images/active.png") !important;
+}
+.default_font{
+	font-family:Tahoma,Arial,Roboto,”Droid Sans”,”Helvetica Neue”,”Droid Sans Fallback”,”Heiti SC”,”Hiragino Sans GB”,Simsun,sans-self;
+}
+.active_dis{
+	background-image:url("images/active_dis.png") !important;
+}
+
+.ux-form-search-trigger { background: url(images/search-trigger.gif);}
+.ux-form-search-trigger-over { background-position:-17px 0; }
+.ux-form-search-trigger-click { background-position:-34px 0; }
+
+.ux-form-readonly{
+	border:none;
+}
+
+#instructions ul li {
+	list-style-type:disc;
+	list-style-position:outside;
+	font-size:12px;
+	margin:0px 0px 0px 20px;
+}
+
+/* Icons */
+.ux-notification-icon-information {
+	background-image: url('images/icon16_info.png');
+}
+
+.ux-notification-icon-error {
+	background-image: url('images/icon16_error.png');
+}
+
+
+/* Using standard theme */
+.ux-notification-window .x-window-body {
+	text-align: center;
+	padding: 15px 5px 15px 5px;
+}
+
+
+/* Custom styling */
+.ux-notification-light .x-window-header {
+	background-color: transparent;
+}
+
+body .ux-notification-light {
+	background-image: url('images/fader.png');
+}
+
+.ux-notification-light .x-window-body {
+	text-align: center;
+	padding: 15px 5px 20px 5px;
+	background-color: transparent;
+	border: 0px solid white;
+}
+
+.ux-toolbar-header{
+	background-image: url(images/header-bg.png);
+	zoom:1;
+	position:absolute !important;
+	border-bottom: 1px solid #567422;
+	background-image: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #8fc33a),
+		color-stop(100%, #739b2e) );
+	background-image: -webkit-linear-gradient(top, #8fc33a, #739b2e);
+	background-image: -moz-linear-gradient(top, #8fc33a, #739b2e);
+	background-image: -o-linear-gradient(top, #8fc33a, #739b2e);
+	background-image: linear-gradient(top, #8fc33a, #739b2e);
+}
+
+.flow_opt{
+	background-image:url("images/user.png") !important;
+}
+.flow_ok{
+	background-image:url("images/tick-button.png") !important;
+}
+.flow_add{
+	background-image:url("images/plus-button.png") !important;
+}
+.flow_return{
+	background-image:url("images/arrow-curve-180-left.png") !important;
+}
+.flow_cancel{
+	background-image:url("images/tick-red.png") !important;
+}
+
+.textfield_display{
+	background:#E6E6E6;
+}
+
+.table_add{
+	background-image:url("images/add.png") !important;
+}
+.table_remove{
+	background-image:url("images/delete.png") !important;
+}
+.table_edit{
+	background-image:url("images/remarks1.png") !important;
+}
+
+.table_ac_edit{
+	background: url("images/remarks1.png") no-repeat !important;
+}
+
+.table_ac_edit_dis{
+	background: url("images/remarks1d.png") no-repeat !important;
+}
+
+.table_save{
+	background-image:url("images/save.png") !important;
+}
+.table_tick{
+	background-image:url("images/tick.png") !important;
+}
+.table_look{
+	background-image:url("images/look.png") !important;
+}
+.table_search{
+	background-image:url("images/search2.png") !important;
+}
+.table_demerge{
+	background-image:url("images/table-split-column.png") !important;
+}
+.table_mergecell{
+	background-image:url("images/table-join-column.png") !important;
+}
+.func_default{
+	background-image:url("images/application_view_list.png") !important;
+}
+
+.quick-from-new{
+	background-image:url("images/add.png");
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+}
+.quick-from-search{
+	background-image:url("images/search.png");
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+}
+
+.quick-from-text-left{
+	border-top:none;
+}
+
+.quick-from-text-right{
+	border-top:none;
+	border-left:none;
+}
+
+.x-grid-record-red {
+    background: rgb(255,0,0); 
+}
+.ux-tb-button {   
+        background: url('../resources/images/tick.png') left top no-repeat !important;   
+}
+.ux-grid-record-red {
+    background: rgb(255,0,0); 
+}
+.ux-tb-button1 {   
+        background: url('../resources/images/edit.png') left top no-repeat !important;   
+}
+
+.ux-actioncolumn-margin{
+	margin-right:5px;
+}
+
+.ux-toolbar-expand{
+	background-image:url("images/expand.png") !important;
+}
+
+.ux-toolbar-collapse{
+	background-image:url("images/collapse.png") !important;
+}
+
+.ux-toolbar-expand{
+	background-position-x:0;
+	background-position-y:-345px;
+}
+
+.ux-grid-column-level1 .x-grid-cell{
+	background-color: rgb(250, 250, 250) !important;
+	border-bottom:1px #ededed solid;
+}
+
+.ux-grid-column-level2 .x-grid-cell{
+	background-color: rgb(250, 250, 250) !important;
+	border-bottom:1px #ededed solid;
+	border-top:1px #ededed solid;
+	/*border-left:1px #d0d0d0 solid;
+	border-right:1px #ededed solid;*/
+}
+
+.ux-grid-column-level2{
+	background-color: rgb(250, 250, 250) !important;
+	border-bottom:1px #ededed solid;
+	border-top:1px #ededed solid;
+	/*border-left:1px #d0d0d0 solid;
+	border-right:1px #ededed solid;*/
+}
+
+.ux-grid-row-over .x-grid-cell{
+	background-color: #ddd !important;
+}
+
+
+
+.Diy-mask {
+     opacity: 0.5;/*chrome*/
+     z-index: 100;
+     filter:alpha(opacity=50);/*IE必须加这句*/
+    -moz-opacity: 0.5;/*火狐*/    
+}
+
+.guide{
+	background-image:url("images/look.png") !important;
+}
+
+.photo_add{
+	background-image:url("images/picture--minus.png") !important;
+}
+.photo_remove{
+	background-image:url("images/picture--minus.png") !important;
+}
+.photo_look{
+	background-image:url("images/picture-sunset.png") !important;
+}
+
+.css-turn-0{
+    -moz-transform:matrix(1,0,0,1,0,0);
+    -o-transform:matrix(1,0,0,1,0,0);
+    -webkit-transform:matrix(1,0,0,1,0,0);
+    transform:matrix(1,0,0,1,0,0);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0, M22=1, SizingMethod='auto expand')"
+}
+.css-turn-270{
+    -moz-transform:matrix(0,-1,1,0,0,0);
+    -o-transform:matrix(0,-1,1,0,0,0);
+    -webkit-transform:matrix(0,-1,1,0,0,0);
+    transform:matrix(0,-1,1,0,0,0);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=1, M21=-1, M22=0, SizingMethod='auto expand')"
+}
+.css-turn-180{
+    -moz-transform:matrix(-1,0,0,-1,0,0);
+    -o-transform:matrix(-1,0,0,-1,0,0);
+    -webkit-transform:matrix(-1,0,0,-1,0,0);
+    transform:matrix(-1,0,0,-1,0,0);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Matrix(M11=-1, M12=0, M21=0, M22=-1, SizingMethod='auto expand')"
+}
+.css-turn-90{
+    -moz-transform:matrix(0,1,-1,0,0,0);
+    -o-transform:matrix(0,1,-1,0,0,0);
+    -webkit-transform:matrix(0,1,-1,0,0,0);
+    transform:matrix(0,1,-1,0,0,0);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=-1, M21=1, M22=0, SizingMethod='auto expand')"
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="短信记录" xtype="uxgrid" curd="RE" selModelStatus="false"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="datefield" fieldLabel="日期" name="sendTime" format="Y-m-d" /> 
+				<column xtype="textfield" fieldLabel="订单编号" name="orderCode" />
+				<column xtype="textfield" fieldLabel="电话号码" name="telephone" />
+				<column xtype="dictcombobox" fieldLabel="短信模板" name="mesType"  dict="MES_TEMPLATE" />
+			</column>
+		</column>
+	</search>
+	
+	<head>
+		<column xtype="rownumberer" width="40" align="right"/>
+		<column dataIndex="orderCode" width="180" align="left"  text="订单编号" />
+		<column dataIndex="mesType" width="150" align="left" text="短信模板" >
+			<editor xtype="dictcombobox" dict="MES_TEMPLATE" editable="false" />
+		</column>
+		<column dataIndex="telephone" width="120" align="left"  text="电话号码" />
+		<column dataIndex="sendTime" xtype="datecolumn" width="170" align="center" text="日期" format="Y-m-d h:m:s"/>
+		<column dataIndex="msg" width="800" align="left" text="短信内容"/>
+	</head>
+	<sql vname="Z_MES_POST_LOG_VIEW">
+	<![CDATA[
+		SELECT * FROM MES_POST_LOG WHERE 1=1
+	]]>
+	<format name="logDate" dateFormat="yyyy-MM-dd"/>
+	</sql>
+</grid>

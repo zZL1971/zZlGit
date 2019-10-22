@@ -1,0 +1,62 @@
+Ext.define("SMSWeb.model.mm.base.MaterialItemModel", {
+	extend:'Ext.data.Model',
+	fields:[
+	   	{name:'id'},
+		{name:'createUser'},
+		{name:'createTime'},
+		{name:'updateTime'},
+	    {name:'updateUser'},
+		{name:'rowStatus'},
+		
+		{name:'orderid'},
+		{name:'artDescript1'},
+		{name:'comment1'},
+		{name:'comment2'},
+		{name:'kp'},
+		{name:'bta'},
+		{name:'clength'},
+		{name:'cwidth'},
+		{name:'cthickness'},
+		
+		{name:'parentid'},
+		{name:'articleId'},
+		{name:'typ'},
+		{name:'parttype'},
+		{name:'name'},
+		{name:'name2'},
+		{name:'length'},
+		{name:'width'},
+		{name:'thickness'},
+		
+		{name:'cnt'},
+		{name:'barcode'},
+		{name:'ispec'},
+		{name:'grid'},
+		{name:'gror'},
+		{name:'edgeId'},
+		{name:'edgeTrans'},
+		{name:'surfTrans'},
+		{name:'price'},
+		{name:'orderpos'},
+		
+		{name:'weight'},
+		{name:'idSerie'},
+		{name:'idText'},
+		{name:'idNcno'},
+		{name:'ncFlag'},
+		{name:'bomFlag'},
+		{name:'cutFlag'},
+		
+		{name:'info1'},
+		{name:'info2'},
+		{name:'info3'},
+		{name:'info4'},
+		{name:'info5'},
+		{name:'checksum2'},
+		{name:'color1'},
+		{name:'color2'},
+		{name:'series'},
+		{name:'zzcpdj'}
+		
+	]
+});

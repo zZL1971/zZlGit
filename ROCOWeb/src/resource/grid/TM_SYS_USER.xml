@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="用户管理" base="/core/user/" xtype="uxgrid" displayfield="userName"/>
+	<gantmodule>
+		<module xtype="uxgrid" headerModule="TMW_SYS_GROUP" title="用户组授权" module="group"/>
+		<module xtype="uxtreegrid" headerModule="TMW_SYS_ROLE" title="角色组授权" module="role"/>
+		<module xtype="uxtreegrid" headerModule="TMW_WECHAT_ROLE" title="微信小程序角色授权" module="wechatrole"/> 
+	</gantmodule>
+	<form>
+		<column xtype="textfield" fieldLabel="登录账号" name="id" allowBlank="false"/>
+		<column xtype="textfield" fieldLabel="密码锁" name="softdogId" allowBlank="false"/>
+		<column xtype="textfield" fieldLabel="用户名" name="userName" allowBlank="false"/>
+		<column xtype="textfield" fieldLabel="密码" name="password" inputType="password"  allowBlank="false"/>
+		<column xtype="hiddenfield" fieldLabel="用户类型" name="userType"/>
+		<column xtype="dictcombobox" fieldLabel="性别" name="sex" dict="SEX" editable="false"/>
+		<column xtype="dictcombobox" fieldLabel="是否启用" name="status" valType="Integer"  dict="YES_NO" editable="false"/>
+		<column xtype="hiddenfield" fieldLabel="用户编号" name="userNo"/>
+		<column xtype="textfield" fieldLabel="邮箱" name="email" vtype="email" allowBlank="false"/>
+		<column xtype="textfield" fieldLabel="电话号码" name="tel" />
+		<column xtype="textfield" fieldLabel="QQ号" name="qqNumber" />
+		<column xtype="tablecombobox" fieldLabel="SAP客户编码" name="kunnr" table="cust_header" dataid="kunnr" datatext="name1" showKey="true"/>
+		<column xtype="textfield" fieldLabel="柜体目标" name="cabinetTarget" />
+		<column xtype="textfield" fieldLabel="质量目标" name="qualityTarget" />
+		<column xtype="dictcombobox" fieldLabel="查看金额权限" name="money"  valType="Integer" dict="YES_NO" editable="false"/>
+		<column xtype="dictcombobox" fieldLabel="是否内外部员工" name="isOut"  valType="Integer" dict="YES_NO" editable="false"/>
+		<column xtype="fieldset" title="系统信息">
+			<column xtype="textfield" fieldLabel="创建人" name="createUser"  readOnly="true" fieldStyle="background:#E6E6E6"/>
+			<column xtype="datefield" fieldLabel="创建时间" name="createTime" format="Y-m-d H:i:s" fieldStyle="background:#E6E6E6" readOnly="true"/>
+			<column xtype="textfield" fieldLabel="更新人" name="updateUser"  readOnly="true" fieldStyle="background:#E6E6E6"/>
+			<column xtype="datefield" fieldLabel="更新时间" name="updateTime" format="Y-m-d H:i:s" fieldStyle="background:#E6E6E6" readOnly="true"/>
+		</column>
+	</form>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="登录账号" name="id"/>
+				<column xtype="textfield" fieldLabel="密码锁" name="softdogId"/>
+				<column xtype="tablecombobox" fieldLabel="客户编码" name="kunnr" table="cust_header" dataid="kunnr" datatext="name1" showKey="true"/>
+				<column xtype="textfield" fieldLabel="用户名" name="userName"/>
+				<column xtype="dictcombobox" fieldLabel="地区分组" name="rear" dict="TASK_GROUP" />
+			</column>
+		</column>
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right"/>
+		<column dataIndex="id" width="100" align="left" text="登陆账号">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="softdogId" width="120" align="left" hidden="false" text="密码锁">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="userNo" width="100" align="center" hidden="true" text="用户编号" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		
+		<column dataIndex="rear" width="100" align="center"  text="地区分组" filterable="true">
+			<editor xtype="dictcombobox" dict="TASK_GROUP" editable="false"/>
+		</column>
+		<column dataIndex="userName" width="100" align="left" text="用户名" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="userType" width="100" align="center" hidden="true" text="用户类型" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="userGroup" width="100" align="center" hidden="true" text="用户组" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="sex" width="80" align="left" text="性别" filterable="true">
+			<editor xtype="dictcombobox" dict="SEX" editable="false"/>
+		</column>
+		<column dataIndex="email" width="160" text="邮箱" filterable="true">
+		</column>
+		<column dataIndex="tel" width="150" align="left" text="电话号码" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="qqNumber" width="100" align="left" text="QQ号" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="kunnr" width="120" align="left" text="客户编码" >
+			<editor xtype="tablecombobox" table="cust_header" dataid="kunnr" datatext="name1" showKey="true"/>
+		</column>
+		<column dataIndex="status" width="100" align="center"  text="是否启用" DICT="YES_NO" filterable="true">
+			<editor xtype="dictcombobox" dict="YES_NO" editable="false"/>
+		</column>
+		<column dataIndex="money" width="100" align="left" text="查看金额权限">
+			<editor xtype="dictcombobox" dict="YES_NO" editable="false" valType="Integer"/>
+		</column>
+		<column xtype="actioncolumn" width="48" align="center" text="操作">
+			<item icon="/resources/images/73.png" tooltip="编辑" handler="itemEditButtonClick"/>
+			<item icon="/resources/images/77.png" tooltip="授权" handler="itemEditButtonClick2"/>
+		</column>
+		<column dataIndex="createTime" xtype="datecolumn" width="140" align="center" text="创建时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="updateTime" xtype="datecolumn" width="140" align="center" text="更新时间" format="Y-m-d H:i:s"/>
+	</head>
+	<sql vname="sys_user">
+	<![CDATA[select * from suser where 1=1 ]]>
+	</sql>
+</grid>

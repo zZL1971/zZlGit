@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="审绘个人月度目标完成情况" base="/main/sd/pr/" xtype="uxgrid" selModelStatus="false" gridGroupField="createUser"  curd="RE"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="月份" name="logDate" /> 
+				<column xtype="textfield" fieldLabel="姓名" name="userName" />
+				<column xtype="dictcombobox" fieldLabel="组别" name="drawingGroup"  dict="DRAWING_GROUP" />
+			</column>
+		</column>
+	</search>
+	
+	<head>
+		<column xtype="rownumberer" width="40" align="right"/>
+		<column dataIndex="logDate" width="145" align="center" text="月份" />
+		<column dataIndex="drawingGroup" width="100" align="left" text="组别" >
+			<editor xtype="dictcombobox" dict="DRAWING_GROUP" editable="false" />
+		</column>
+		<column dataIndex="userName" width="100" align="left" text="姓名" />
+		<column dataIndex="ordCount"  width="120" align="left" text="完成订单数" />
+		<column dataIndex="squareNum" width="90" align="left" text="完成方数" />
+		<column dataIndex="sjCount" width="90" align="left" text="完成散件数" />
+		<column dataIndex="rowsNumber"  width="100" align="left" text="完成柜体数" />
+		<column dataIndex="punCount"  width="100" align="left" text="罚单数量" />
+		<column dataIndex="quality"  width="100" align="left" text="质量" />
+		<column dataIndex="cabTarget"  width="100" align="left" text="柜体目标" />
+		<column dataIndex="quaTarget"  width="100" align="left" text="质量目标" />
+		<column dataIndex="cabGap"  width="100" align="left" text="柜体差距" />
+		<column dataIndex="quaGap"  width="100" align="left" text="质量差距" />
+	</head>
+	<sql vname="CAPACITY_MONTH">
+	<![CDATA[
+		select * from CAPACITY_MONTH
+
+	]]>
+	</sql>
+</grid>

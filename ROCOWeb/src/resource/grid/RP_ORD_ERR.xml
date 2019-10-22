@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="订单出错进度 报表" base="/main/sd/pr/" xtype="uxgrid" selModelStatus="false" gridGroupField="createUser"  curd="RE"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="订单编号" name="orderCode" />
+				<column xtype="dictcombobox" fieldLabel="订单类型" name="orderType" dict="ORDER_TYPE" editable="false"/>
+				<column xtype="tablecombobox" fieldLabel="售达方" name="shouDaFang" table="cust_header" dataid="kunnr" datatext="name1" showKey="true"/>
+				<column xtype="textfield" fieldLabel="售达方名称" name="kunnrName1" />
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="datefield" fieldLabel="订单日期" name="orderDate" format="Y-m-d" />
+				<column xtype="dictcombobox" fieldLabel="出错原因" name="errRea" dict="ERROR_ORD_REA" />
+				<column xtype="dictcombobox" fieldLabel="出错环节" name="targetTaskName" localData='["","起草","订单审绘","价格审核","客户确认","财务确认","结束","客服起草"]' />
+				<column xtype="dictcombobox" fieldLabel="出错类型" name="errType" dict="ERROR_ORD_TYPE" />
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="datefield" fieldLabel="退回日期" name="endTime" format="Y-m-d"/>
+				<column xtype="datefield" fieldLabel="到" name="endTime" format="Y-m-d"/>
+				<column xtype="dictcombobox" fieldLabel="是否样品" name="isYp"
+					dict="YES_NO" /> 
+			</column>
+		</column>
+	</search>
+	
+	<head>
+		<column xtype="rownumberer" width="40" align="right"/>
+		<column dataIndex="orderDate" xtype="datecolumn" width="145" align="center" text="订单日期" format="Y-m-d"/>
+		<column dataIndex="shouDaFang" width="80" align="left"  text="售达方" filterable="true">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="orderCode" width="140" align="left" text="订单编号">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>
+		<column dataIndex="orderTypeDesc" width="150" align="left" text="订单类型">
+			<editor xtype="dictcombobox" dict="ORDER_TYPE" editable="false"/>
+		</column>
+		<column text="是否样品" dataIndex="isYp" width="80" align="left" >
+			<editor xtype="dictcombobox" dict="YES_NO" editable="false" />
+		</column>
+		<column dataIndex="errTypeDesc"  width="120" align="left" text="出错类型" >
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>	
+		<column dataIndex="errReaDesc"  width="120" align="left" text="出错原因"> 
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>	
+		<column dataIndex="errDesc"  width="130" align="left" text="出错内容" />
+		<column dataIndex="targetTaskName" width="110" align="center" text="出错环节">
+			<editor xtype="textfield" selectOnFocus="true"/>
+			<filter type="string"/>
+		</column>		
+		<column dataIndex="assignee" width="90" align="center" text="发现人" />
+		<column dataIndex="assignee2" width="90" align="center" text="责任人" />
+		<column dataIndex="designer" width="90" align="center" text="设计师" />
+		<column dataIndex="endTime" xtype="datecolumn" width="145" align="center" text="退回日期" format="Y-m-d"/>
+	</head>
+	<sql vname="ORDER_ERR">
+	<![CDATA[
+		select * from ORDER_ERR
+	]]>
+	</sql>
+</grid>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="账户菜单一览表" base="/main/sd/pr/" xtype="uxgrid" curd="RE" selModelStatus="false" gridGroupField="createUser"/>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="用户名" name="userId"/>
+				<column xtype="textfield" fieldLabel="角色名称" name="roleName"/>
+				<column xtype="textfield" fieldLabel="菜单名称" name="descZhCn"/>
+				<column xtype="textfield" fieldLabel="用户名称" name="userName" />
+			</column>
+		</column>
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right"/>
+		<column dataIndex="userId" width="100" align="left" text="用户名"/>
+		<column dataIndex="userName" width="100" align="left" text="用户名称"/>
+		<column dataIndex="roleName" width="100" align="center" text="角色名称"/>
+		<column dataIndex="descZhCn" width="150" align="left" text="菜单名称"/>
+	</head>
+	<sql vname="RP_CUS_DIS">
+	<![CDATA[select * from rp_role_menu where 1=1 ]]>
+	</sql>
+</grid>

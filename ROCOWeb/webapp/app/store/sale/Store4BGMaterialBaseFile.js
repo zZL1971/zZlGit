@@ -1,0 +1,18 @@
+Ext.define("SMSWeb.store.sale.Store4BGMaterialBaseFile",{
+	extend:'Ext.data.Store',
+	model:'SMSWeb.model.sale.BGMaterialFileBaseModel',
+	proxy:{
+		type:'ajax',
+		url:'main/mm/queryBgFile',
+		reader:{
+			type:'json'
+		},
+		writer:{
+			type:'json'
+		},
+		listeners:{  
+	        exception:Ext.ux.DataFactory.exception
+	    }
+	},
+	autoLoad:false
+});

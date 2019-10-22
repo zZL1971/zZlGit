@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="菜单弹窗" base="/core/menu/" xtype="uxtreegrid" displayfield="descZhCn"/>
+	<form>
+		<column xtype="textfield" fieldLabel="事务代码" name="workCode"/>
+		<column xtype="textfield" fieldLabel="菜单名称" name="descZhCn" allowBlank="false"/>
+		<column xtype="textfield" fieldLabel="菜单名称" name="descEnUs" hidden="true"/>
+		<column xtype="textfield" fieldLabel="菜单名称" name="descZhTw" hidden="true"/>
+		<column xtype="textfield" fieldLabel="菜单地址" name="url"/>
+		<column xtype="textfield" fieldLabel="父角色" name="parent.id"/>
+		<column xtype="numberfield" fieldLabel="排序" name="orderBy" allowBlank="false"/>
+		<column xtype="numberfield" fieldLabel="叶子节点" name="leaf" hidden="true"/>
+		<column xtype="numberfield" fieldLabel="是否展开" name="expanded" hidden="true"/>
+		<column xtype="fieldset" title="系统信息">
+			<column xtype="textfield" fieldLabel="UUID" name="id"  readOnly="true" fieldStyle="background:#E6E6E6"/>
+			<column xtype="datefield" fieldLabel="创建时间" name="createTime" format="Y-m-d H:i:s" fieldStyle="background:#E6E6E6" readOnly="true"/>
+			<column xtype="textfield" fieldLabel="创建人" name="createUser"  readOnly="true" fieldStyle="background:#E6E6E6"/>
+			<column xtype="datefield" fieldLabel="更新时间" name="updateTime" format="Y-m-d H:i:s" fieldStyle="background:#E6E6E6" readOnly="true"/>
+			<column xtype="textfield" fieldLabel="更新人" name="updateUser"  readOnly="true" fieldStyle="background:#E6E6E6"/>
+		</column>
+	</form>
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="中文描述" name="descZhCn"/>
+			</column>
+		</column>
+	</search>
+	<head>
+		<column xtype="treecolumn" dataIndex="descZhCn" flex="1" align="left" text="中文描述"/>
+		<column dataIndex="createTime" xtype="datecolumn" width="140" align="center" text="创建时间" format="Y-m-d H:i:s"/>
+		<column dataIndex="updateTime" xtype="datecolumn" width="140" align="center" text="更新时间" format="Y-m-d H:i:s"/>
+	</head>
+	<sql vname="sys_menu">
+	<![CDATA[select a.* from sys_menu a  start with a.id ='root' connect by prior a.id=a.pid order siblings by order_by ]]>
+	</sql>
+</grid>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config title="补单一览表" base="/main/sd/pr/" xtype="uxgrid" curd="RE" />
+	<search>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="创建人" name="createUser"/>
+				<column xtype="textfield" fieldLabel="责任人" name="duty"/>
+				<column xtype="datefield" fieldLabel="创建日期" name="orderDate"
+					format="Y-m-d" />
+				<column xtype="datefield" fieldLabel="到" name="orderDate"
+					format="Y-m-d" />
+				<column xtype="dictcombobox" fieldLabel="销售分类" name="saleFor"
+					dict="SALE_FOR" />
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="订单编号" name="orderCode"/>
+				<column xtype="textfield" fieldLabel="SAP订单编号" name="sapOrderCode"/>
+				<column xtype="dictcombobox" fieldLabel="交期天数" name="deadline"
+					dict="JIAO_QI_TIAN_SHU" />
+				<column xtype="dictcombobox" fieldLabel="是否取消" name="isQx" dict="YES_NO"/>
+			</column>
+		</column>
+		<column layout="hbox" xtype="fieldcontainer">
+			<column xtype="container" flex="1" layout="hbox">
+				<column xtype="textfield" fieldLabel="店面名称" name="name1"/>
+			</column>
+		</column>
+	</search>
+	<head>
+		<column xtype="rownumberer" width="30" align="right" />
+		<column dataIndex="complaintTime" xtype="datecolumn" width="150" align="center" text="投诉日期" format="Y-m-d"/>
+		<column dataIndex="createTime" xtype="datecolumn" width="150" align="center" text="创建时间" format="Y-m-d"/>
+		<column dataIndex="orderCreateTime" xtype="datecolumn" width="150" align="center" text="创单时间" format="Y-m-d"/>
+		<column dataIndex="orderEndTime" xtype="datecolumn" width="150" align="center" text="车间接单日期" format="Y-m-d"/>
+		<column dataIndex="name1" width="100" align="left" text="店面名称"/>
+		<column dataIndex="orderCode" align="left" width="150" text="订单编号" />
+		<column dataIndex="sapOrderCode" align="left" width="100" text="SAP订单编号" />
+		<column dataIndex="zztsnr" width="200" align="left" text="投诉内容" />
+		<column dataIndex="zzxbmm" width="200" align="left" text="需补材料规格" />
+		<column dataIndex="orderTotal" width="100" align="right" text="金额"/>
+		<column dataIndex="zzezx" width="120" align="left" text="出错中心" />
+		<column dataIndex="zzebm" width="120" align="left" text="出错部门" />
+		<!--  <column dataIndex="zzecj" width="120" align="left" text="出错车间" hidden="true"/>-->
+		<!--<column dataIndex="zzescx" width="120" align="left" text="出错生产线"  hidden="true"/>-->
+		<!--<column dataIndex="zzrgx" width="120" align="left" text="责任工序" hidden="true"/>-->
+		<!--<column dataIndex="zzelb" width="120" align="left" text="出错类别" hidden="true"/>-->
+		<column dataIndex="zzccz" width="120" align="left" text="出错组" />
+		<column dataIndex="cpmc" width="120" align="left" text="产品名称"/>
+		<column dataIndex="zzccwt" width="120" align="left" text="出错问题" />
+		<column dataIndex="duty" width="120" align="left" text="责任人" />
+		<column dataIndex="putawayDate" xtype="datecolumn" width="150" align="center" text="入库日期" format="Y-m-d"/>
+		<column dataIndex="yuJiDate" width="120" xtype="datecolumn"  format="Y-m-d" align="center" text="标准交期" />
+		<column dataIndex="isQx" width="80" align="center" text="取消"/>
+		<column dataIndex="jdName" width="100" align="left" text="当前节点"/>
+		<column dataIndex="createUser" width="80" align="left" text="创建人"/>
+	</head>
+	<sql vname="RP_EXT_ORD">
+	<![CDATA[select * from ext_ord_report_view t where 1=1 and order_code is not null ]]>
+	</sql>
+</grid>

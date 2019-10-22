@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<head>
+		<column text="编号" dataIndex="id" width="100" align="left" />
+		<column text="父编号" dataIndex="parentid" width="100" align="left" />
+		<column text="订单编号" dataIndex="orderid" width="100" align="left" />
+		<column text="类型" dataIndex="typ" width="100" align="left" />
+		<column text="板件类型" dataIndex="parttype" width="100" align="left" />
+		
+		<column text="名称1" dataIndex="name" width="100" align="left" />
+		<column text="名称2" dataIndex="name2" width="100" align="left" />
+		
+		<column text="长度" dataIndex="length" width="100" align="left" />
+		<column text="宽度" dataIndex="width" width="100" align="left" />
+		<column text="厚度" dataIndex="thickness" width="100" align="left" />
+		<column text="数量" dataIndex="cnt" width="100" align="left" />
+		<column text="条形码" dataIndex="barcode" width="100" align="left" />
+		
+		<column text="价格" dataIndex="price" width="100" align="left" />
+		
+		<column text="信息1" dataIndex="info1" width="100" align="left" />
+		<column text="信息2" dataIndex="info2" width="100" align="left" />
+		<column text="信息3" dataIndex="info3" width="100" align="left" />
+		<column text="信息4" dataIndex="info4" width="100" align="left" />
+		<column text="信息5" dataIndex="info5" width="100" align="left" />
+		
+		<column text="颜色2" dataIndex="color2" width="100" align="left" />
+		
+		<column text="render" dataIndex="render" width="100" align="left" />
+		<!-- 
+		<column text="mainline" dataIndex="mainline" width="100" align="left" />
+		<column text="单个部件" dataIndex="kp" width="100" align="left" />
+		<column text="定义部件" dataIndex="kms" width="100" align="left" />
+		
+		<column text="PVC同色封边" dataIndex="articleId" width="100" align="left" />
+		
+		
+		<column text="流水号" dataIndex="ncno" width="100" align="left" />
+		<column text="正面条码" dataIndex="cncBarcode1" width="100" align="left" />
+		<column text="反面条码" dataIndex="cncBarcode2" width="100" align="left" />
+		<column text="门板开启方向" dataIndex="hinge" width="100" align="left" />
+		<column text="纹理" dataIndex="ispec" width="100" align="left" />
+		<column text="纹理" dataIndex="grid" width="100" align="left" />
+		<column text="角度" dataIndex="gror" width="100" align="left" />
+		<column text="封边号码" dataIndex="edgeId" width="100" align="left" />
+		<column text="封边类型" dataIndex="edgeTrans" width="100" align="left" />
+		<column text="先贴面后封边" dataIndex="surfTrans" width="100" align="left" />
+		
+		
+		<column text="重量" dataIndex="weight" width="100" align="left" />
+		<column text="体积" dataIndex="area" width="100" align="left" />
+		<column text="板件序列编码" dataIndex="idSerie" width="100" align="left" />
+		<column text="ID描述" dataIndex="idText" width="100" align="left" />
+		<column text="ID流水号" dataIndex="idNcno" width="100" align="left" />
+		<column text="ncFlag" dataIndex="ncFlag" width="100" align="left" />
+		<column text="bom标识" dataIndex="bomFlag" width="100" align="left" />
+		
+		<column text="剪裁标识" dataIndex="cutFlag" width="100" align="left" />
+		
+		
+		<column text="第一校验码" dataIndex="checksum" width="100" align="left" />
+		<column text="第二校验码" dataIndex="checksum2" width="100" align="left" />
+		<column text="颜色1" dataIndex="color1" width="100" align="left" />
+		
+		<column text="板件ID" dataIndex="idbgplId" width="100" align="left" />
+		<column text="材料ID" dataIndex="matid" width="100" align="left" />
+		<column text="材料名" dataIndex="matname" width="100" align="left" />
+		
+		<column text="surftid" dataIndex="surftid" width="100" align="left" />
+		<column text="surftnam" dataIndex="surftnam" width="100" align="left" />
+		<column text="surfbid" dataIndex="surfbid" width="100" align="left" />
+		<column text="surfbnam" dataIndex="surfbnam" width="100" align="left" />
+		<column text="surftgrid" dataIndex="surftgrid" width="100" align="left" />
+		<column text="surftgror" dataIndex="surftgror" width="100" align="left" />
+		<column text="surfbgrid" dataIndex="surfbgrid" width="100" align="left" />
+		
+		<column text="surfbgror" dataIndex="surfbgror" width="100" align="left" />
+		<column text="surftlength" dataIndex="surftlength" width="100" align="left" />
+		<column text="surftwidth" dataIndex="surftwidth" width="100" align="left" />
+		<column text="surftthickness" dataIndex="surftthickness" width="100" align="left" />
+		<column text="surfblength" dataIndex="surfblength" width="100" align="left" />
+		<column text="surfbwidth" dataIndex="surfbwidth" width="100" align="left" />
+		<column text="surfbthickness" dataIndex="surfbthickness" width="100" align="left" />
+		<column text="mpeType" dataIndex="mpeType" width="100" align="left" />
+		
+		
+		<column text="text1" dataIndex="text1" width="100" align="left" />
+		<column text="text2" dataIndex="text2" width="100" align="left" />
+		<column text="exportStatus" dataIndex="exportStatus" width="100" align="left" />
+		<column text="exportTimestamp" dataIndex="exportTimestamp" width="100" align="left" />
+		<column text="order_id" dataIndex="order_id" width="100" align="left" />
+		<column text="supplier" dataIndex="supplier" width="100" align="left" />
+		<column text="employee" dataIndex="employee" width="100" align="left" />
+		<column text="commission" dataIndex="commission" width="100" align="left" />
+		<column text="customer" dataIndex="customer" width="100" align="left" />
+		<column text="datecreate" dataIndex="datecreate" width="100" align="left" />
+		<column text="shippingDate" dataIndex="shippingDate" width="100" align="left" />
+		<column text="deliveryDate" dataIndex="deliveryDate" width="100" align="left" />
+		
+		<column text="delivName1" dataIndex="delivName1" width="100" align="left" />
+		<column text="delivName2" dataIndex="delivName2" width="100" align="left" />
+		<column text="delivStreet" dataIndex="delivStreet" width="100" align="left" />
+		<column text="delivPostboxTown" dataIndex="delivPostboxTown" width="100" align="left" />
+		<column text="delivCountry" dataIndex="delivCountry" width="100" align="left" />
+		<column text="xxx" dataIndex="xxx" width="100" align="left" />
+		  -->
+	</head>
+	<sql vname="tree_material">
+	<![CDATA[select * from IMOS_IDBEXT where 1=1]]>
+	</sql>
+</grid>

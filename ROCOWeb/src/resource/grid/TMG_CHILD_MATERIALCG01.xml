@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+	<config isPage="false"/>
+	<head>
+		<column xtype="rownumberer" width="40" align="right"/>
+		<column xtype="actioncolumn" width="40" align="center" text="操作" hidden="true" hideable="false">
+			<item icon="/resources/images/remarks1.png" tooltip="编辑" handler="itemEditButtonClick"/>
+		</column>
+		<column text="物料编码" dataIndex="articleId" width="120" align="left">
+		</column>
+		<column text="名称1" dataIndex="name" width="170" align="left">
+		</column>
+		<column text="名称2" dataIndex="name2" width="170" align="left">
+		</column>
+		<column text="数量" dataIndex="cntsum" width="60" align="right">
+		</column>
+		<column text="单位" dataIndex="info3" width="60" align="right">
+		</column>
+		<column text="订单编号" dataIndex="orderid" hidden="true" width="150" align="left" />
+		<column text="类型" dataIndex="typ" hidden="true" width="40" align="left" />
+		<column text="识别码" dataIndex="info1" width="60" align="left"/>
+	</head>
+	<sql vname="show_materialcg01">
+	<![CDATA[
+	select sum(cnt) as cntsum, orderid, typ, name2,name, article_id, info1 , info3
+	  from IMOS_IDBEXT
+	 where  INFO1='CG01'
+	  group by orderid, typ, name2, name,article_id, info1, info3
+	 order by nlssort(name2, 'NLS_SORT=SCHINESE_PINYIN_M'),info1, info3
+	 
+	]]>
+	</sql>
+</grid>
