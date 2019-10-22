@@ -1,9 +1,0 @@
-Ext.define('SMSWeb.data.${xmlName}',{
-	search:${search}
-	,config:${config}
-	,columns:${columns}
-	,model:${model}
-	,form:${form}
-	,xmlName:'${xmlName}'
-	,validations:${validations}
-});
