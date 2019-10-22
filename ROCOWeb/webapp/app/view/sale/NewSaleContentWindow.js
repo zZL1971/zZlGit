@@ -331,7 +331,7 @@ Ext.define(
 												},
 												{
 													xtype : 'tablecombobox',
-													fieldLabel : '订单类型<font color=red>*</font>',
+													fieldLabel : '订单类型s<font color=red>*</font>',
 													emptyText : '请选择...',
 													allowBlank : false,
 													editable : false,
